@@ -1,0 +1,68 @@
+﻿@model IEnumerable<jadorelecloudgaming.Models.VirtualMachine>
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <a asp-action="Create" class="btn btn-secondary">Créer une nouvelle VM</a>
+    } else
+    {
+        <a>Veuillez vous enregistrer afin de créer une VM.</a>
+    }
+
+
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ip)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.login)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.password)
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ip)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.login)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.password)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id" class="btn btn-success">Edit</a>
+                <a asp-action="Details" asp-route-id="@item.id" class="btn btn-info">Details</a>
+                <a asp-action="Delete" asp-route-id="@item.id" class="btn btn-danger">Delete</a>
+            </td>
+            <td>
+                <a style="@(item.Powered?"":"display: none;")" asp-action="TurnOffVM" asp-route-id="@item.id" class="btn btn-dark">Stop</a>
+                <a style="@(item.Powered?"display: none;":"")" asp-action="TurnOnVM" asp-route-id="@item.id" class="btn btn-light">Start</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

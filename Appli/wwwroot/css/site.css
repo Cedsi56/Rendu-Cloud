@@ -1,0 +1,30 @@
+html {
+    background-color: #313338;
+    color: #F3F4F5;
+}
+
+.navbar-light .navbar-brand {
+    color: #F3F4F5;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #F3F4F5;
+}
+
+.navbar {
+    background-color: black;
+}
+
+body {
+    background-color: #313338;
+    color: #F3F4F5;
+}
+
+.table {
+    background-color: #313338;
+    color: #F3F4F5;
+}
+
+.spaced-button {
+    margin-top: 10px;
+}

@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "mssql2": {
+      "secretStore": "LocalSecretsFile",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/dbservervmmanager/databases/vm-databasev2",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings:AzureConnection",
+      "dynamicId": null
+    }
+  }
+}
